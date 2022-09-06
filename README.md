@@ -25,8 +25,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://ip-address-tracker-challenge-6t7ayk48g-rcarlachiani.vercel.app/)
 
 ### Built with
 
@@ -39,5 +38,4 @@ Users should be able to:
 
 ## Author
 
-- GitHub - [rcarlachiani](https://github.com/rcarlachiani)
 - Frontend Mentor - [@rcarlachiani](https://www.frontendmentor.io/profile/rcarlachiani)
