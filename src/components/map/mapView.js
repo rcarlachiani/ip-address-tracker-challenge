@@ -1,15 +1,13 @@
 import React from 'react';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
-import L from 'leaflet';
-delete L.Icon.Default.prototype._getIconUrl;
+import { icon } from "leaflet"
 
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/icon-location.png'),
-  iconUrl: require('leaflet/dist/images/icon-location.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+const ICON = icon({
+  iconUrl: "images/icon-location.png",
   iconSize: [38, 45],
-});
+  iconAnchor:  [12, 41]
+})
 
 function MapView({props}) {
     
@@ -29,7 +27,7 @@ function MapView({props}) {
                         attribution='© OpenStreetMap' 
                         zIndex={8}
                     />    
-                <Marker position={[props.latitude, props.longitude]} />
+                <Marker icon={ICON} position={[props.latitude, props.longitude]} />
                 <SetView coords={[props.latitude, props.longitude]}/>
                 </MapContainer>
             : ''}
