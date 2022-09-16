@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import getData from "../services/getUserData";
 
-export const Context = React.createContext({})
+export const Context = React.createContext()
 
 export default function ContextProvider({children}){
 

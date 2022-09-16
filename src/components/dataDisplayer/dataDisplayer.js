@@ -17,12 +17,13 @@ function DataDisplayer () {
                     <Line/> 
                     <DataContainer padding>
                         <DataTittle>Location</DataTittle>
-                        <Data margin>{context.data.city}</Data>
+                        <Data margin>{context.data.location?.city}</Data>
+                        <Data margin>{context.data.location?.country}</Data>
                     </DataContainer>
                     <Line/>
                     <DataContainer padding>
                         <DataTittle>Timezone</DataTittle>
-                        <Data margin>{context.data.time_zone?.offset}</Data>
+                        <Data margin>{context.data.location?.timezone}</Data>
                     </DataContainer>
                     <Line/>
                     <DataContainer padding>
