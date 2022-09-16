@@ -1,28 +1,33 @@
 import { Data, DataContainer , DataTittle, Line, StyledDisplayer } from "./dataDisplayerStyles";
+import { useContext } from "react";
+import { Context } from "../../context/context"
 
-function DataDisplayer ({props}) {
+
+function DataDisplayer () {
+    const context = useContext(Context)
+
     return (
         <>
-            { props? 
+            { context? 
                 <StyledDisplayer>
                     <DataContainer>
                         <DataTittle>Ip address</DataTittle>
-                        <Data margin>{props.ip}</Data>
+                        <Data margin>{context.data.ip}</Data>
                     </DataContainer>
                     <Line/> 
                     <DataContainer padding>
                         <DataTittle>Location</DataTittle>
-                        <Data margin>{props.city}</Data>
+                        <Data margin>{context.data.city}</Data>
                     </DataContainer>
                     <Line/>
                     <DataContainer padding>
                         <DataTittle>Timezone</DataTittle>
-                        <Data margin>{props.time_zone?.offset}</Data>
+                        <Data margin>{context.data.time_zone?.offset}</Data>
                     </DataContainer>
                     <Line/>
                     <DataContainer padding>
                         <DataTittle>Isp</DataTittle>
-                        <Data>{props.isp}</Data>
+                        <Data>{context.data.isp}</Data>
                     </DataContainer>
                 </StyledDisplayer>
             : ''}

@@ -1,10 +1,10 @@
 import { StyledHeader } from "./headerStyles";
 import Searcher from "./searcher";
 
-function Header({click, change, submit, dataEntered}) {
+function Header() {
     return (
         <StyledHeader>
-            <Searcher click={click} change={change} submit={submit} dataEntered={dataEntered}/>
+            <Searcher/>
         </StyledHeader>
     )
 }

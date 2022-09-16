@@ -1,15 +1,18 @@
 import React from 'react';
+import { useContext } from "react";
+import { Context } from "../../context/context"
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'
 import { icon } from "leaflet"
 
 const ICON = icon({
   iconUrl: "images/icon-location.png",
-  iconSize: [38, 45],
+  iconSize: [36, 45],
   iconAnchor:  [12, 41]
 })
 
 function MapView({props}) {
+    const context = useContext(Context)
     
     function SetView({ coords }) {
         const map = useMap();
@@ -20,15 +23,15 @@ function MapView({props}) {
 
     return (
         <>
-            {props?.latitude && props?.longitude ? 
-                <MapContainer style={{width: '100vw', height: '100vh', zIndex: '5'}} center={{lat: props.latitude, lng: props.longitude}} zoom={6} zoomControl={false} scrollWheelZoom={false}>
+            {context.data?.latitude && context.data?.longitude ? 
+                <MapContainer style={{width: '100vw', height: 'calc(100vh - 280px)', zIndex: '5'}} center={{lat: context.data.latitude, lng: context.data.longitude}} zoom={10} zoomControl={false} doubleClickZoom={false} scrollWheelZoom={false}>
                     <TileLayer 
                         url='https://tile.openstreetmap.org/{z}/{x}/{y}.png' 
                         attribution='© OpenStreetMap' 
                         zIndex={8}
                     />    
-                <Marker icon={ICON} position={[props.latitude, props.longitude]} />
-                <SetView coords={[props.latitude, props.longitude]}/>
+                <Marker icon={ICON} position={[context.data.latitude, context.data.longitude]} />
+                <SetView coords={[context.data.latitude, context.data.longitude]}/>
                 </MapContainer>
             : ''}
         </>
