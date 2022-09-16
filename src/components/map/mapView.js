@@ -23,15 +23,15 @@ function MapView({props}) {
 
     return (
         <>
-            {context.data?.latitude && context.data?.longitude ? 
-                <MapContainer style={{width: '100vw', height: 'calc(100vh - 280px)', zIndex: '5'}} center={{lat: context.data.latitude, lng: context.data.longitude}} zoom={10} zoomControl={false} doubleClickZoom={false} scrollWheelZoom={false}>
+            {context.data.location?.lat && context.data.location?.lng ? 
+                <MapContainer style={{width: '100vw', height: 'calc(100vh - 280px)', zIndex: '5'}} center={{lat: context.data.location.lat, lng: context.data.location.lng}} zoom={11} zoomControl={false} doubleClickZoom={false} scrollWheelZoom={false}>
                     <TileLayer 
                         url='https://tile.openstreetmap.org/{z}/{x}/{y}.png' 
                         attribution='© OpenStreetMap' 
                         zIndex={8}
                     />    
-                <Marker icon={ICON} position={[context.data.latitude, context.data.longitude]} />
-                <SetView coords={[context.data.latitude, context.data.longitude]}/>
+                <Marker icon={ICON} position={[context.data.location.lat, context.data.location.lng]} />
+                <SetView coords={[context.data.location.lat, context.data.location.lng]}/>
                 </MapContainer>
             : ''}
         </>
